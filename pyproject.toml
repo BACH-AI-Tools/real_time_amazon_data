@@ -1,6 +1,6 @@
 [project]
 name = "bach-real_time_amazon_data"
-version = "1.0.0"
+version = "2.0.0"
 description = "RapidAPI: letscrape-6bRBa3QguO5/real-time-amazon-data"
 readme = "README.md"
 requires-python = ">=3.10"
