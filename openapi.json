@@ -1,0 +1,1569 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Real Time Amazon Data",
+    "version": "1.0.0",
+    "description": "RapidAPI: letscrape-6bRBa3QguO5/real-time-amazon-data"
+  },
+  "servers": [
+    {
+      "url": "https://real-time-amazon-data.p.rapidapi.com"
+    }
+  ],
+  "paths": {
+    "/influencer-post-products": {
+      "get": {
+        "summary": "Influencer Post Products",
+        "description": "Get the list of products related to a \\",
+        "operationId": "influencer_post_products",
+        "parameters": [
+          {
+            "name": "influencer_name",
+            "in": "query",
+            "required": true,
+            "description": "Example value: madison.lecroy",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "post_id",
+            "in": "query",
+            "required": true,
+            "description": "Influencer Post ID (e.g. amzn1.ideas.1N84PQ3CI4NW0) of the list post for which to get product items (only posts with post_type=List are allowed).",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Set the cursor value from the response of the previous call to get the next results page.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product-reviews": {
+      "get": {
+        "summary": "Product Reviews",
+        "description": "Get and paginate through product reviews on Amazon using a logged in user cookie string. Each page contains up to 10 reviews.",
+        "operationId": "product_reviews",
+        "parameters": [
+          {
+            "name": "asin",
+            "in": "query",
+            "required": true,
+            "description": "Product asin for which to get reviews.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Results page to return. Default: 1",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": null
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "description": "Return reviews in a specific sort order. Default: TOP_REVIEWS Allowed values: TOP_REVIEWS, MOST_RECENT",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "star_rating",
+            "in": "query",
+            "required": false,
+            "description": "Only return reviews with a specific star rating. Default: ALL Allowed values: ALL, 5_STARS, 4_STARS, 3_STARS, 2_STARS, 1_STARS, POSITIVE, CRITICAL",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "verified_purchases_only",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "images_or_videos_only",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "current_format_only",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "description": "Find reviews matching a search query.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of review fields to include in the response (field projection). By default all fields are returned. Example: review_title,review_images,review_date,country",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product-category-list": {
+      "get": {
+        "summary": "Product Category List",
+        "description": "Get Amazon product categories per country / Amazon domain (for use with the \\",
+        "operationId": "product_category_list",
+        "parameters": [
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/asin-to-gtin": {
+      "get": {
+        "summary": "ASIN to GTIN",
+        "description": "Convert an Amazon ASIN to GTIN / EAN / UPS identifiers. Valid values for `type` are `EAN-13`, `UPC`, or `ISBN`.",
+        "operationId": "asin_to_gtin",
+        "parameters": [
+          {
+            "name": "asin",
+            "in": "query",
+            "required": true,
+            "description": "Amazon product ASIN to convert.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/influencer-posts": {
+      "get": {
+        "summary": "Influencer Posts",
+        "description": "Get all Amazon Influencer posts with pagination support.",
+        "operationId": "influencer_posts",
+        "parameters": [
+          {
+            "name": "influencer_name",
+            "in": "query",
+            "required": true,
+            "description": "The Amazon Influencer name for which to get posts",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "required": false,
+            "description": "Return the results in a specific scope. Default: ALL Allowed values: ALL, IDEA_LISTS, PHOTOS, VIDEOS",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "description": "Find posts matching a search query.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "A cursor to get the next set of results, it can be used for for paging purposes. Note: the cursor value for the next set of results is returned by this endpoint under data.cursor.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of posts to return. Default: 20 Allowed values: 1-100",
+            "schema": {
+              "type": "string",
+              "default": "20",
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of influencer post fields to include in the response (field projection). By default all fields are returned. Example: post_url,post_title,is_pinned,video_duration",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/promo-code-details": {
+      "get": {
+        "summary": "Promo Code Details",
+        "description": "Get the products offered by an Amazon promo code.",
+        "operationId": "promo_code_details",
+        "parameters": [
+          {
+            "name": "promo_code",
+            "in": "query",
+            "required": true,
+            "description": "Promo code for which to get products. The promo code can be extracted from the /promocode Amazon URL. For example the promo code for https://www.amazon.com/promocode/A31M10S4V50SOU is A31M10S4V50SOU.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deal-products": {
+      "get": {
+        "summary": "Deal Products",
+        "description": "Get the products of a specific deal by Deal ID. Supports pagination using the *page* parameter. For now, only works for MULTI_ITEM deals with no canonical_deal_url (i.e. when deal_url is in the form of *https://amazon_domain/deal/deal_id*).",
+        "operationId": "deal_products",
+        "parameters": [
+          {
+            "name": "deal_id",
+            "in": "query",
+            "required": true,
+            "description": "Deal ID of the deal to fetch",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "description": "Return products in a specific order. Default: FEATURED Allowed values: FEATURED, LOWEST_PRICE, HIGHEST_PRICE, REVIEWS, NEWEST, BEST_SELLERS",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Results page to return. Default: 1",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of deal product fields to include in the response (field projection). By default all fields are returned. Example: product_title,deal_price,deal_badge",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/best-sellers": {
+      "get": {
+        "summary": "Best Sellers",
+        "description": "Get Amazon Best Sellers, including prices, ratings, rank and more data points available on Amazon Best Sellers listings. Supports all Amazon Best Seller list types using the `type` parameter: **Best Sellers**, **New Releases**, **Movers \\u0026 Shakers**, **Most Wished For**, **Gift Ideas**.",
+        "operationId": "best_sellers",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "required": true,
+            "description": "Best sellers category to return products for. Supports top level best sellers categories (e.g. software). In addition, subcategories / category path can be specified as well, separated by / (e.g. software/229535) - this can be seen in best sellers URLs, e.g. https://www.amazon.com/Best-Sellers-Software-Business-Office/zgbs/software/229535. Examples: software software/229535",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Type of Best Seller list to return. Default: BEST_SELLERS Allowed values: BEST_SELLERS, GIFT_IDEAS, MOST_WISHED_FOR, MOVERS_AND_SHAKERS, NEW_RELEASES",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Results page to return. Default: 1",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of product fields to include in the response (field projection). By default all fields are returned. Example: product_title,product_url,product_photo",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/seller-products": {
+      "get": {
+        "summary": "Seller Products",
+        "description": "Get and paginate through the products sold by an Amazon Seller",
+        "operationId": "seller_products",
+        "parameters": [
+          {
+            "name": "seller_id",
+            "in": "query",
+            "required": true,
+            "description": "The Amazon Seller ID for which to get seller product listings",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "The page of seller products results to retrieve Seller products result page to retrieve. Default: 1",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": null
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "description": "Return the results in a specific sort order. Default: RELEVANCE Allowed values: RELEVANCE, LOWEST_PRICE, HIGHEST_PRICE, REVIEWS, NEWEST, BEST_SELLERS",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of seller product fields to include in the response (field projection). By default all fields are returned. Example: product_price,product_url,is_prime",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/seller-reviews": {
+      "get": {
+        "summary": "Seller Reviews",
+        "description": "Get and paginate through Amazon Seller reviews / feedback as shown on the Seller profile page (e.g. https://www.amazon.com/sp?seller=A1D09S7Q0OD6TH). Each page contains up to 5 reviews.",
+        "operationId": "seller_reviews",
+        "parameters": [
+          {
+            "name": "seller_id",
+            "in": "query",
+            "required": true,
+            "description": "The Amazon Seller ID for which to get seller reviews",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "star_rating",
+            "in": "query",
+            "required": false,
+            "description": "Only return reviews with a specific star rating or positive / negative sentiment. Default: ALL Allowed values: ALL, 5_STARS, 4_STARS, 3_STARS, 2_STARS, 1_STARS, POSITIVE, CRITICAL",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "The page of seller feedback results to retrieve. Default: 1",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of seller review fields to include in the response (field projection). By default all fields are returned. Example: review_star_rating,review_date",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product-review-details": {
+      "get": {
+        "summary": "Product Review Details",
+        "description": "Get the details of a specific product review by id",
+        "operationId": "product_review_details",
+        "parameters": [
+          {
+            "name": "review_id",
+            "in": "query",
+            "required": true,
+            "description": "The id of the product review for which to get details.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of review fields to include in the response (field projection). By default all fields are returned. Example: review_title,review_images,review_date,country",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product-details": {
+      "get": {
+        "summary": "Product Details",
+        "description": "Get extensive Amazon product details and information available on the Amazon product page by asin, including title, price data, ratings data, local and global top reviews, photos, product details (brand, weight, package size, model, etc) product variations (colors, sizes, flavors, etc), and many other data points. Here's an example product page: [https://www.amazon.com/dp/B0CMZFCQ6D](https://www.amazon.com/dp/B0CMZFCQ6D).",
+        "operationId": "product_details",
+        "parameters": [
+          {
+            "name": "asin",
+            "in": "query",
+            "required": true,
+            "description": "Product ASIN for which to get details. Supports batching of up to 10 ASINs in a single request, separated by comma. Examples: B08BHXG144 B08PPDJWC8,B07ZPKBL9V,B08BHXG144 Note that each ASIN in a batch request is counted as a single request against the plan quota.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "autoselect_variant",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "more_info_query",
+            "in": "query",
+            "required": false,
+            "description": "A query to search and get more info about the product as part of Product Information, Customer Q&As, and Customer Reviews.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of product fields to include in the response (field projection). By default all fields are returned. Example: product_price,product_url,is_best_seller,sales_volume",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product-offers": {
+      "get": {
+        "summary": "Product Offers",
+        "description": "Get all Amazon product details as available via the Product Details endpoint with an additional `offers` array containing product offers (The first offer in the array is the pinned offer returned by the **Search** endpoint). Supports pagination using the `page` and `limit` parameters.",
+        "operationId": "product_offers",
+        "parameters": [
+          {
+            "name": "asin",
+            "in": "query",
+            "required": true,
+            "description": "Product ASIN for which to get offers. Supports batching of up to 10 ASINs in a single request, separated by comma. Example: B08PPDJWC8,B07ZPKBL9V,B08BHXG144 Note that each ASIN in a batch request is counted as a single request against the plan quota.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "product_condition",
+            "in": "query",
+            "required": false,
+            "description": "Find products in specific conditions, specified as a comma delimited list of the following values: NEW, USED_LIKE_NEW, USED_VERY_GOOD, USED_GOOD, USED_ACCEPTABLE. Default: NEW, USED_LIKE_NEW, USED_VERY_GOOD, USED_GOOD, USED_ACCEPTABLE Examples: NEW,USED_LIKE_NEW USED_VERY_GOOD,USED_GOOD,USED_LIKE_NEW",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "delivery",
+            "in": "query",
+            "required": false,
+            "description": "Find products with specific delivery option, specified as a comma delimited list of the following values: PRIME_ELIGIBLE,FREE_DELIVERY. Examples: FREE_DELIVERY PRIME_ELIGIBLE,FREE_DELIVERY",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "autoselect_variant",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of offers to return. Default: 100",
+            "schema": {
+              "type": "string",
+              "default": "100",
+              "enum": null
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Results page to return. Default: 1",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of product and offer fields to include in the response (field projection). By default all fields are returned. Example: product_price,product_information,product_condition,ships_from",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/influencer-profile": {
+      "get": {
+        "summary": "Influencer Profile",
+        "description": "Get Amazon Influencer profile details from the Amazon Influencer store page (e.g. https://www.amazon.com/shop/tastemade).",
+        "operationId": "influencer_profile",
+        "parameters": [
+          {
+            "name": "influencer_name",
+            "in": "query",
+            "required": true,
+            "description": "The Amazon Influencer name for which to get profile details",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of influencer profile fields to include in the response (field projection). By default all fields are returned. Example: name,profile_link,posts_count,facebook_url",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products-by-category": {
+      "get": {
+        "summary": "Products by Category",
+        "description": "Get products \\u0026 offers in a specific Amazon category with pagination support and multiple filters and options such as sort option, price range, product condition filter, and more.",
+        "operationId": "products_by_category",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/seller-profile": {
+      "get": {
+        "summary": "Seller Profile",
+        "description": "Get Amazon Seller profile details from the Amazon Seller profile page (e.g. https://www.amazon.com/sp?seller=A1D09S7Q0OD6TH).",
+        "operationId": "seller_profile",
+        "parameters": [
+          {
+            "name": "seller_id",
+            "in": "query",
+            "required": true,
+            "description": "The Amazon Seller ID for which to get seller profile details",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of seller profile fields to include in the response (field projection). By default all fields are returned. Example: seller_link,phone,business_name,rating",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Product Search",
+        "description": "Search for products \\u0026 offers on Amazon with pagination support and multiple filters and options such as sort option, price range, product condition filter, and more.",
+        "operationId": "product_search",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "description": "Search query (supports both free-form text queries or a product asin).",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Results page to return. Default: 1",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": null
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "description": "Return the results in a specific sort order. Default: RELEVANCE Allowed values: RELEVANCE, LOWEST_PRICE, HIGHEST_PRICE, REVIEWS, NEWEST, BEST_SELLERS",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "category_id",
+            "in": "query",
+            "required": false,
+            "description": "Find products in a specific category / department (e.g. computers-intl-ship). Use the Product Category List endpoint to get a list of valid categories and their ids for the country specified in the request. For numeric Amazon category IDs, use the category parameter instead. Default: aps (All Departments)",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "Filter by specific numeric Amazon category. The category ID can be obtained from the Amazon category results URL, for example: https://amazon.com/s?node=2858778013 - the Amazon Category ID is 2858778013. Multiple category values can be separated by comma (e.g. categoryId1,categoryId2).",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "min_price",
+            "in": "query",
+            "required": false,
+            "description": "Only return product offers with price greater than a certain value. Specified in the currency of the selected country. For example, in case country=US, a value of 105.34 means $105.34.",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "max_price",
+            "in": "query",
+            "required": false,
+            "description": "Only return product offers with price lower than a certain value. Specified in the currency of the selected country. For example, in case country=US, a value of 105.34 means $105.34.",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "product_condition",
+            "in": "query",
+            "required": false,
+            "description": "Return products in a specific condition. Default: ALL Allowed values: ALL, NEW, USED, RENEWED, COLLECTIBLE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "brand",
+            "in": "query",
+            "required": false,
+            "description": "Find products with a specific brand. Multiple brands can be specified as a comma (,) separated list. The brand values can be seen from Amazon's search left filters panel, as seen here. Examples: SAMSUNG Google,Apple",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "seller_id",
+            "in": "query",
+            "required": false,
+            "description": "Find products sold by specific seller (merchant). Multiple sellers can be specified as a comma (,) separated list. Examples: A02211013Q5HP3OMSZC7W AM7YCCDZROLB2,A1D09S7Q0OD6TH",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "is_prime",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "deals_and_discounts",
+            "in": "query",
+            "required": false,
+            "description": "Return deals and discounts in a specific condition. Default: NONE Allowed values: NONE, ALL_DISCOUNTS, TODAYS_DEALS",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "four_stars_and_up",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "additional_filters",
+            "in": "query",
+            "required": false,
+            "description": "Any filters available on the Amazon page but not part of this endpoint's parameters. The filter values can be extracted from the rh parameter in the Amazon search URL after applying the filter of interest on the Amazon search results page. Multiple filters are supported and can be separated by comma (,). For example, when searching for science books with the Paperback book format filter selected, the Amazon URL is: https://www.amazon.com/s?k=science+books&rh=p_n_feature_browse-bin%3A2656022011 a",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of product fields to include in the response (field projection). By default all fields are returned. Example: product_price,product_url,is_best_seller,sales_volume",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deals-v2": {
+      "get": {
+        "summary": "Deals",
+        "description": "Get Amazon Deals (Today's Deals / Top Deals, Best Deals, and Lightning Deals) with support for all deal types, filters, and options available on Amazon.",
+        "operationId": "deals",
+        "parameters": [
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Sets the Amazon domain, marketplace country, language and currency. Default: US Allowed values: US, AU, BR, CA, CN, FR, DE, IN, IT, MX, NL, SG, ES, TR, AE, GB, JP, SA, PL, SE, BE, EG, ZA, IE",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of results to skip / index to start from (for pagination).",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "categories",
+            "in": "query",
+            "required": false,
+            "description": "Return deals with products in specific categories / departments. Multiple categories can be specified as a comma (,) separated list. Numeric category id's can be found in the URL after selecting a specific category on https://www.amazon.com/deals. Examples: 502394 2619525011,2617941011",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "min_product_star_rating",
+            "in": "query",
+            "required": false,
+            "description": "Return deals with products star rating greater than a specific value Default: ALL Allowed values: ALL, 1, 2, 3, 4",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "price_range",
+            "in": "query",
+            "required": false,
+            "description": "Return deals with price within a specific price range. 1 is lowest price range shown on Amazon (e.g. Under $25) while 5 is the highest price range (e.g. $200 & Above). Default: ALL Allowed values: ALL, 1, 2, 3, 4, 5",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "discount_range",
+            "in": "query",
+            "required": false,
+            "description": "Return deals with discount within a specific discount range. 1 is lowest discount range shown on Amazon (e.g. 10% off or more) while 5 is the highest discount range (e.g. 70% off or more). Default: ALL Allowed values: ALL, 1, 2, 3, 4, 5",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "brands",
+            "in": "query",
+            "required": false,
+            "description": "Return deals with products by specific brands. Multiple brands can be specified separated by comma (,). In addition, brand names can be found under the Brand filter on the filter/refinements panel on https://www.amazon.com/deals (when applicable). Examples: AQUA CREST Daixers,Antarctic Star",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "prime_early_access",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "prime_exclusive",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "lightning_deals",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "The language of the results. In case not specified, results will be returned in the default domain language. Supported languages per country: US: en_US, es_US AU: en_AU BR: pt_BR CA: en_CA, fr_CA FR: fr_FR, en_GB DE: de_DE, en_GB, cs_CZ, nl_NL, pl_PL, tr_TR, da_DK IN: en_IN, hi_IN, ta_IN, te_IN, kn_IN, ml_IN, bn_IN, mr_IN IT: it_IT, en_GB MX: es_MX NL: nl_NL, en_GB SG: en_SG ES: es_ES, pt_PT, en_GB TR: tr_TR AE: en_AE, ar_AE GB: en_GB JP: ja_JP, en_US, zh_CN SA: ar_AE, en_AE PL: pl_PL SE: sv_SE,",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "A comma separated list of deal fields to include in the response (field projection). By default all fields are returned. Example: deal_type,deal_title,deal_ends_at,savings_amount",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-RapidAPI-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiAuth": []
+    }
+  ]
+}

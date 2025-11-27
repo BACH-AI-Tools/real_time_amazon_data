@@ -30,7 +30,7 @@ Visit **[EMCP Platform](https://sit-emcp.kaleido.guru)** now to start your MCP j
 
 ## Introduction
 
-This is an automatically generated MCP server using [FastMCP](https://fastmcp.wiki) for accessing the Real Time Amazon Data API.
+This is an MCP server for accessing the Real Time Amazon Data API.
 
 - **PyPI Package**: `bach-real_time_amazon_data`
 - **Version**: 1.0.0
@@ -107,8 +107,8 @@ export API_KEY="your_api_key_here"
 {
   "mcpServers": {
     "real_time_amazon_data": {
-      "command": "python",
-      "args": ["E:\path\to\real_time_amazon_data\server.py"],
+      "command": "uvx",
+      "args": ["--from", "bach-real_time_amazon_data", "bach_real_time_amazon_data"],
       "env": {
         "API_KEY": "your_api_key_here"
       }

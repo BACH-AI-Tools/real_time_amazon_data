@@ -30,7 +30,7 @@
 
 ## 简介
 
-这是一个使用 [FastMCP](https://fastmcp.wiki) 自动生成的 MCP 服务器，用于访问 Real Time Amazon Data API。
+这是一个 MCP 服务器，用于访问 Real Time Amazon Data API。
 
 - **PyPI 包名**: `bach-real_time_amazon_data`
 - **版本**: 1.0.0
@@ -107,8 +107,8 @@ export API_KEY="your_api_key_here"
 {
   "mcpServers": {
     "real_time_amazon_data": {
-      "command": "python",
-      "args": ["E:\path\to\real_time_amazon_data\server.py"],
+      "command": "uvx",
+      "args": ["--from", "bach-real_time_amazon_data", "bach_real_time_amazon_data"],
       "env": {
         "API_KEY": "your_api_key_here"
       }
@@ -595,7 +595,6 @@ Get Amazon Deals (Today's Deals / Top Deals, Best Deals, and Lightning Deals) wi
 
 ## 技术栈
 
-- **FastMCP**: 快速、Pythonic 的 MCP 服务器框架
 - **传输协议**: stdio
 - **HTTP 客户端**: httpx
 
